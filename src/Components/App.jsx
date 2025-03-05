@@ -5,7 +5,6 @@ import Footer from './Footer'
 import '../styles/Layout.css'
 import { useState, useEffect } from "react"
 
-
 function App(){
 
 	const savedCart = localStorage.getItem('cart')

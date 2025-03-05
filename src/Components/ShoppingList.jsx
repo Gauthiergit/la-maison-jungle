@@ -3,10 +3,12 @@ import '../styles/ShoppingList.css'
 import Categories from "./Categories"
 import PlantItem from "./PlantItem"
 import { useState } from "react"
+import Modal from "./Modal"
 
 function ShoppingList({ cart, updateCart }) {
 
 	const [selectedCategories, updateCategories] = useState([])
+	const [modalPlantId, setModalPlantId] = useState(null)
 
 	function addToCart(name, price) {
 		const currentPlantSaved = cart.find((plant) => plant.name === name)
@@ -29,7 +31,7 @@ function ShoppingList({ cart, updateCart }) {
 			<ul className='lmj-plant-list'>
 				{plantList.map(({ id, cover, name, water, light, price, category}) => (
 					!selectedCategories.length || selectedCategories.includes(category) ? (
-						<div key={id}>
+						<div key={id} onClick={() => setModalPlantId(id)}>
 							<PlantItem
 								cover={cover}
 								name={name}
@@ -37,6 +39,15 @@ function ShoppingList({ cart, updateCart }) {
 								light={light}
 								price={price}
 							/>
+							{modalPlantId === id && (
+								<Modal
+									isOpen={true} 
+									onClose={() => setModalPlantId(null)}
+									name={name}
+									water={water}
+									light={light}
+								/>
+							)}
 							<button onClick={() => addToCart(name, price)}>Ajouter</button>
 						</div>
 					) : null

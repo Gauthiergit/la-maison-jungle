@@ -1,0 +1,38 @@
+/* Fond semi-transparent */
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* background: rgba(0, 0, 0, 0.5); */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  /* Quand la modal est ouverte */
+  .modal-overlay.show {
+	opacity: 1;
+	visibility: visible;
+  }
+  
+  /* Contenu de la modal */
+  .modal-content {
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	width: 300px;
+	text-align: center;
+	transform: translateY(-20px);
+	transition: transform 0.3s ease;
+  }
+  
+  /* Animation d'apparition */
+  .modal-overlay.show .modal-content {
+	transform: translateY(0);
+  }
+  
