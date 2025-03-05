@@ -4,6 +4,7 @@ import ShoppingList from "./ShoppingList"
 import Footer from './Footer'
 import '../styles/Layout.css'
 import { useState, useEffect } from "react"
+import "../styles/index.css"
 
 function App(){
 

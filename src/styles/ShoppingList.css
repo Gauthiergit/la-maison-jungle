@@ -9,3 +9,11 @@
 	flex-wrap: wrap;
 	justify-content: center;
 }
+
+button {
+	background: linear-gradient(#11998e, #38ef7d);
+	border-radius: 20px;
+	color: white;
+	padding: 5px 10px;
+	border: none;
+}
